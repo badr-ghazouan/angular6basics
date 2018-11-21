@@ -15,4 +15,10 @@ import { AppComponent } from './app.component';
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule { 
+
+  // this constructor is optional, we can get red of it
+  constructor() {
+   // console.log('Hey I am from module constructor!');
+  }
+}
