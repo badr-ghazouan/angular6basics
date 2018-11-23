@@ -7,27 +7,37 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HelloComponent implements OnInit {
 
-  i=0;
-  myvar = "passed from ts file <==> this is called interpolation '{{}}'  ";
-  bitwiser = 4 | 9; // 0 and 1 =1 , 1 and 0 =1, 1 and 1 =0 , 0 and  0 =0
-  othervar =Math.random();
-  constructor() { }
+  myvar = "app";
+  othervar = "whatever";
+  mydisabledvar = false;
 
- 
+  constructor() { 
+    setInterval(()=>{
+      //this.myvar  = Math.random().toString();   
+      //console.log("myvar  = " +  this.myvar);
+      /*    documentation
+        myvar is one way binded variable, it's value from component.ts(javascript) to html(view), not vice versa
+        mydisabledvar is also one way binded, but from view (html) to component.ts(javscript)
+      */
+    },1000)
+  }
+  /*
+    to use two way data binding, we add  [(ngModel)]  in html input, 
+    add FormsModule from '@angular/forms' to import array in app.module.ts
+  */
+
   ngOnInit() {
-  /*  setInterval(()=>{
-      this.othervar  = Math.random(); 
-    },500)
-    // if we uncomment this the doSomeHeavyTask() would be called infinively,
-    // because of interpolation call in html{{doSomeHeavyTask}}
-    // uncomment it to see the difference in console
-    */
+  
     console.log("ngOnInit is called on hello component")
   }
-  doSomeHeavyTask() {
-    console.log("do someHeavyTask is called" + this.i);
-    // if we print (this.i++) the i value change, so the method will be called by interpolation extra times
+  callMyFunction() {
+    this.mydisabledvar = !this.mydisabledvar;
+    console.log("function called");
   }
 
+  updateInput(e) {
+    console.log(e.target.value);
+    this.othervar = e.target.value;
+  }
   
 }

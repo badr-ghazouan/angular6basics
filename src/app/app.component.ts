@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {HelloComponent} from "./hello/hello.component";
+import { Compiler } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -8,6 +9,5 @@ import {HelloComponent} from "./hello/hello.component";
 })
 export class AppComponent {
   title = 'introAngular from ghazouan';
-  
  
 }

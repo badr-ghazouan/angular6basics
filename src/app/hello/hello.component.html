@@ -3,7 +3,12 @@
 </p>
 
 <b>{{myvar}}</b>
+<input type="text" [value]=myvar [disabled] = "mydisabledvar"  />
+<button (click)= "callMyFunction()">click me</button>
+<br/><br/>
 
-<h2>{{bitwiser}}</h2>
-<p>you should not call functions in html (interpolation) because it is called each time the component have changed(example :variable reassignment)</p>
-<h3>{{doSomeHeavyTask()}}</h3>
+<input type="text" name="twowaydatabinding" [value]="othervar" (input)="updateInput($event)" />
+
+<input type="text" [(ngModel)] = "othervar" />
+<br/>
+<p>{{othervar}}</p>
