@@ -1,26 +1,5 @@
 import { Component } from '@angular/core';
-
-
-function logging(className) {
-  console.log(className)
-
-  return (...args) =>{
-    console.log("arguments passed : ", args)
-    return new className(...args)
-  }
-}
-
-@logging
- class ExampleClass {
-
-  constructor(...args) {
-    console.log("constructor fired");
-     }
-}
-
-const myclass = new ExampleClass(4,5);
-
-
+import {HelloComponent} from "./hello/hello.component";
 
 @Component({
   selector: 'app-root',
