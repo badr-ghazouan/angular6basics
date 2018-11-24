@@ -2,13 +2,39 @@
   hello works from<b> custom component</b> !
 </p>
 
-<b>{{myvar}}</b>
-<input type="text" [value]=myvar [disabled] = "mydisabledvar"  />
 <button (click)= "callMyFunction()">click me</button>
 <br/><br/>
 
-<input type="text" name="twowaydatabinding" [value]="othervar" (input)="updateInput($event)" />
+<input type="text" name="twowaydatabinding" [value]="othervar" (input)="updateInput($event)" disabled>
 
 <input type="text" [(ngModel)] = "othervar" />
 <br/>
 <p>{{othervar}}</p>
+
+<div> Months :
+  <select>
+     <option *ngFor = "let month of months; let i = index">{{month}}</option>
+      <!-- to diplay index {{i}} -->
+  </select>
+  <select>
+    <option *ngFor = "let month of months; let i = index">{{i}}</option>
+     <!-- to diplay index {{i}} -->
+ </select>
+</div>
+<br/>
+<div>
+ if statement :==> <span *ngIf="isavailable; else condition1">Condition is valid.</span>
+                   <ng-template #condition1>Condition is invalid</ng-template>
+</div>
+
+<br/><br/>
+
+  <table>
+    <tr  *ngFor = "let record of records; let i = index; let evenrecord  = even; let oddrecord = odd;
+                  "[ngClass] = "{odd : oddrecord , even :evenrecord}" >
+      <td>{{i+1}}</td>
+      <td>{{record.name}}</td>
+      <td>{{record.option}}</td>
+     
+    </tr>
+  </table>
