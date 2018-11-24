@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {RecordsService} from '../records.service';
 
 @Component({
   selector: 'app-hello',
@@ -7,46 +8,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HelloComponent implements OnInit {
 
-  myvar = "app";
-  othervar = "whatever";
-  mydisabledvar = false;
+  records : any; // means this variable is of any datatype
 
-  constructor() {  }
+  //dependency injection by angular
+  constructor(private myService : RecordsService) {
+    /*  
+       constructor(private myService : RecordsService) {} == {
+                  
+        private myservice : RecordsService
+        constructor(private myService : RecordsService) {} == {
+         this.myService = myService;
+      }
+      
+    */
+    }
  
   ngOnInit() {
-  
+    this.records = this.myService.getData();
+
     console.log("ngOnInit is called on hello component")
   }
 
-  records = [
-    {
-      name:"badr",
-      option : "info"
-    },
-    {
-      name : "omar",
-      option : "data info"
-    },
-    {
-      name : "abcd",
-      option : "xye" 
-    },
-    {
-      name:"badr",
-      option : "info"
-    },
-    {
-      name : "omar",
-      option : "data info"
-    },
-    {
-      name : "abcd",
-      option : "xye" 
-    }
-  ]
-  
-  months = ["January", "February", "March", "April",
-  "May", "June", "July", "August", "September",
-  "October", "November", "December"];
-isavailable = false;   //variable is set to true
 }
